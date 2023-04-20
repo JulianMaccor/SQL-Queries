@@ -1,0 +1,48 @@
+-- 1. Listar todos los clientes que su apellido empiece por A, ordenados por apellido
+-- de manera ascendente.
+Use dhalmundo;
+
+Select * from clientes 
+where apellidos like 'A%'
+
+
+-- 2. Listar nombre, apellido,dirección de aquellos clientes que en su dirección
+-- contengan la palabra “martin.
+Use dhalmundo;
+
+Select nombres, apellidos, direccion from clientes
+where direccion like '%martin%'
+
+-- 3. Listar todos los hoteles que tengan de 30 a 60 habitaciones.
+
+Select *from hoteles
+where cantidadHabitaciones between 30 and 60
+
+-- 4. Mostrar cuál ha sido el mayor importe facturado y llamarlo “Precio Mayor”,
+-- también mostrar cuál es el total facturado y llamarlo “TOTAL”.
+
+Select precioTotal as 'Precio Mayor' from pagos
+
+-- 5. Listar las reservas que fueron realizadas el día 16/01/2022 entre las 15hs y las
+-- 21hs pertenecientes a la sucursal número 5.
+
+select *from reservas
+where fechaRegistro between '2022-01-16 15:00:00' AND '2022-01-16 21:00:00'
+
+-- 6. Mostrar el top 3 de reservas con mayor cantidad de vuelos.
+
+Select *from vuelosxreserva
+order by idvuelo desc
+limit 3
+
+-- 7. Listar los 10 pagos de menor precio.
+
+Select *from pagos
+order by precioTotal ASC
+limit 10
+
+8. Listar todos los países ordenados alfabéticamente y con su nombre en
+mayúsculas.
+
+Select UPPER (nombre) from paises
+order by nombre ASC
